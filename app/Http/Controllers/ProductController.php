@@ -56,7 +56,13 @@ class ProductController extends Controller
       $product->category =  $validation ['category'];
       $product->price =  $validation ['price'];
       $product->save() ;
-      
+
       return redirect()->route('products.index')->with('success', 'Product updated successfully!');
+    }
+    public function destroy($id)
+    {
+      $product = Product::findOrFail($id);
+      $product->delete();
+      return redirect()->route('products.index')->with('error', 'Product deleted successfully!');
     }
 }

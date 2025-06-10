@@ -14,4 +14,6 @@ Route::get('/products/edit/{id}',[ProductController::class, 'edit'])->name('prod
 
 Route::patch('/products/update/{id}',[ProductController::class, 'update'])->name('products.update');
 
+Route::delete('/products/delete/{id}',[ProductController::class, 'destroy'])->name('products.destroy');
+
 // put / patch
