@@ -20,6 +20,7 @@
                             <div>
                                 <h1 class="text-xl text-semibold">
                                     Products ({{ $totalProducts }})</h1>
+                                    Products ({{ $products->count()}})</h1>
                                 <p class="text-gray-600">Manage your products here</p>    
                             </div>
                             <div>
@@ -85,7 +86,9 @@
             </td>
             <td
                 class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                <a href="#"
+ <a href="{{ route('products.edit',
+  ['id' => $product->id]) }}"
+  
                     class="px-5 py-2 bg-blue-500 rounded-md text-white text-lg shadow-md">Edit</a>
             </td>
             <td
