@@ -5,7 +5,16 @@
             <div class="col-md-12">
                 <div class="my-5">
                     <div class="container mx-auto">
-
+                        @if(session()->has('error'))
+                            <div class="bg-red-400 text-red-800 px-4 py-2">
+                                {{ session('error') }}
+                            </div>
+                        @endif
+                        @if(session()->has('success'))
+                            <div class="text-4xl bg-green-300 text-green-700 px-4 py-2 mb-5">
+                                {{ session('success') }}
+                            </div>
+                        @endif
 
                         <div class="flex justify-between items-center bg-gray-200 p-5 rounded-md">
                             <div>
@@ -14,7 +23,7 @@
                                 <p class="text-gray-600">Manage your products here</p>    
                             </div>
                             <div>
-                                <a href="#"
+                                <a href="{{ route('products.create') }}"
                                     class="px-5 py-2 bg-blue-500 rounded-md text-white text-lg shadow-md">Add
                                     New</a>
                             </div>

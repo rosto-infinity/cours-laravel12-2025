@@ -21,7 +21,7 @@
    
    @include('layouts.website.header-website')
    @yield('content')
-    @include('layouts.website.footer-website')
+ @include('layouts.website.footer-website')
 
 </body>
 </html>
