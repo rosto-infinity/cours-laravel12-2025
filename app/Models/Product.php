@@ -9,11 +9,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Product extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        'title',
-        'category',
-        'price',
-    ];
+ protected $guarded = [];
+
+    // protected $fillable = [
+    //     'title',
+    //     'category',
+    //     'price',
+    // ];
 
   
 }

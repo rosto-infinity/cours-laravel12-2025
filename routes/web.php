@@ -16,4 +16,12 @@ Route::patch('/products/update/{id}',[ProductController::class, 'update'])->name
 
 Route::delete('/products/delete/{id}',[ProductController::class, 'destroy'])->name('products.destroy');
 
+Route::get('/{any}', function () {
+    return view('notFoundPage');
+})->where('any', '.*');
+
+
+// lele.com/sdd------------ 404
+// lele.com/products/svdvv----------
+
 // put / patch

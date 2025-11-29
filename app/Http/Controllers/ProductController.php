@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Controllers\Controller;
 use App\Models\Product;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
@@ -19,22 +19,23 @@ class ProductController extends Controller
        'totalProducts'=> $totalProducts
        ]);
     }
-
-    public function create()
+   public function create()
     {
-      return view('pages.products-create');  
+        return view('pages.products-create');
     }
+
     public function store(Request $request)
     {
-      $validation =$request->validate([
-        'title' => 'required|max:255',
-        'category' => 'required|max:255',
-        'price' => 'required|numeric|min:0',
-      ]);
-      Product::create($validation);
-      return redirect()->route('products.index')
-      ->with('success', 'Product created successfully!'); 
+        $validation = $request->validate(
+            [
+                'title' => 'required',
+                'category' => 'required|string|max:255',
+                'price' => 'required|numeric']
+            );
+        Product::create($validation);
+        return redirect()->route('products.index')->with('success', 'Product added successfully');
     }
+
 
   public function edit($id): View
     {
